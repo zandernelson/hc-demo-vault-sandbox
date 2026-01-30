@@ -20,3 +20,7 @@ override.tf.json
 .DS_Store
 
 *.pem
+*.key
+
+/aws/config
+/aws/scripts
