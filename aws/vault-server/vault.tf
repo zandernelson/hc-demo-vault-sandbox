@@ -5,9 +5,9 @@ data "tfe_outputs" "network" {
 }
 
 locals {
-  vpc_id            = data.tfe_outputs.network.values.vpc_id
-  public_subnet_ids = data.tfe_outputs.network.values.public_subnet_ids
-  name_prefix       = data.tfe_outputs.network.values.name_prefix
+  vpc_id            = nonsensitive(data.tfe_outputs.network.values.vpc_id)
+  public_subnet_ids = nonsensitive(data.tfe_outputs.network.values.public_subnet_ids)
+  name_prefix       = nonsensitive(data.tfe_outputs.network.values.name_prefix)
 }
 
 # Security Group for Vault Server
