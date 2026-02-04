@@ -30,7 +30,7 @@ output "instance_id" {
 
 output "vpc_id" {
   description = "VPC ID"
-  value       = aws_vpc.main.id
+  value       = local.vpc_id
 }
 
 output "ami_id" {

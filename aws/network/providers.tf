@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "zander-nelson-demo"
     workspaces {
-      name = "vault-aws-sandbox"
+      name = "vault-network-aws-sandbox"
     }
   }
 

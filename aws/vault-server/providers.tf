@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "zander-nelson-demo"
     workspaces {
-      name = "vault-k8s-consumer-aws-sandbox"
+      name = "vault-server-aws-sandbox"
     }
   }
 
@@ -12,14 +12,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 5.0.0"
-    }
-    vault = {
-      source  = "hashicorp/vault"
-      version = ">= 4.0.0"
-    }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = ">= 2.0.0"
     }
     tfe = {
       source  = "hashicorp/tfe"
@@ -39,4 +31,3 @@ provider "aws" {
     }
   }
 }
-

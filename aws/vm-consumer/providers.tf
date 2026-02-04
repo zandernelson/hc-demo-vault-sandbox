@@ -1,15 +1,37 @@
 terraform {
-  required_version = ">= 1.0"
+  required_version = ">= 1.14.0"
+
+  cloud {
+    organization = "zander-nelson-demo"
+    workspaces {
+      name = "vault-vm-consumer-aws-sandbox"
+    }
+  }
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = ">= 5.0.0"
     }
     vault = {
       source  = "hashicorp/vault"
-      version = "~> 4.0"
+      version = ">= 4.0.0"
+    }
+    tfe = {
+      source  = "hashicorp/tfe"
+      version = ">= 0.51.0"
     }
   }
 }
 
+provider "aws" {
+  region = var.aws_region
+
+  default_tags {
+    tags = {
+      Project     = "vault-sandbox"
+      Environment = "demo"
+      ManagedBy   = "terraform"
+    }
+  }
+}
