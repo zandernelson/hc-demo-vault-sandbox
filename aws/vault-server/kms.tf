@@ -5,11 +5,11 @@ resource "aws_kms_key" "vault" {
   enable_key_rotation     = true
 
   tags = {
-    Name = "${local.name_prefix}-vault-unseal-key"
+    Name = "${var.name_prefix}-vault-unseal-key"
   }
 }
 
 resource "aws_kms_alias" "vault" {
-  name          = "alias/${local.name_prefix}-vault-unseal"
+  name          = "alias/${var.name_prefix}-vault-unseal"
   target_key_id = aws_kms_key.vault.key_id
 }

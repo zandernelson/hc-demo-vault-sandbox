@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "zander-nelson-demo"
     workspaces {
-      name = "vault-server-aws-primary"
+      name = "vault-aws-sandbox"
     }
   }
 
@@ -12,10 +12,6 @@ terraform {
     aws = {
       source  = "hashicorp/aws"
       version = ">= 5.0.0"
-    }
-    tfe = {
-      source  = "hashicorp/tfe"
-      version = ">= 0.51.0"
     }
   }
 }

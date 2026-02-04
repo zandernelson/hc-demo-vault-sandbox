@@ -1,8 +1,8 @@
 # Security Group for Vault Server
 resource "aws_security_group" "vault" {
-  name        = "${local.name_prefix}-vault-sg"
+  name        = "${var.name_prefix}-vault-sg"
   description = "Security group for Vault server"
-  vpc_id      = local.vpc_id
+  vpc_id      = aws_vpc.main.id
 
   # SSH access
   ingress {
@@ -41,6 +41,6 @@ resource "aws_security_group" "vault" {
   }
 
   tags = {
-    Name = "${local.name_prefix}-vault-sg"
+    Name = "${var.name_prefix}-vault-sg"
   }
 }

@@ -24,7 +24,7 @@ resource "aws_eip" "vault" {
   domain = "vpc"
 
   tags = {
-    Name = "${local.name_prefix}-vault-eip"
+    Name = "${var.name_prefix}-vault-eip"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_instance" "vault" {
   ami                    = data.aws_ami.amazon_linux.id
   instance_type          = var.instance_type
   key_name               = var.key_name
-  subnet_id              = local.public_subnet_ids[0]
+  subnet_id              = aws_subnet.public.id
   vpc_security_group_ids = [aws_security_group.vault.id]
   iam_instance_profile   = aws_iam_instance_profile.vault.name
 
@@ -57,6 +57,6 @@ resource "aws_instance" "vault" {
   }
 
   tags = {
-    Name = "${local.name_prefix}-vault-server"
+    Name = "${var.name_prefix}-vault-server"
   }
 }
