@@ -1,1 +1,7 @@
-aws_region = "us-east-1"
+aws_region         = "us-east-1"
+kubernetes_version = "1.29"
+node_instance_type = "t3.medium"
+node_desired_size  = 2
+node_min_size      = 1
+node_max_size      = 3
+allowed_cidrs      = ["0.0.0.0/0"]
